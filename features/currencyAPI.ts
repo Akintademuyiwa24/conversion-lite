@@ -14,3 +14,4 @@ export const currencyAPI = createApi({
 });
 
 export const { useGetRatesQuery } = currencyAPI;
+
