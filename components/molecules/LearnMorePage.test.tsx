@@ -4,7 +4,7 @@ import LearnPage from './LearnMorePage';
 describe('LearnMorePage', () => {
   it('renders the main heading', () => {
     render(<LearnPage />);
-    const heading = screen.getByRole('heading', { name: /learn more about this product here!/i });
+    const heading = screen.getByRole('heading', { name: /learn more about this product!/i });
     expect(heading).toBeInTheDocument();
   });
 
@@ -23,8 +23,8 @@ describe('LearnMorePage', () => {
   it('displays feature cards', () => {
     render(<LearnPage />);
     
-    expect(screen.getByText(/real-time conversion/i)).toBeInTheDocument();
-    expect(screen.getByText(/clean & responsive ui/i)).toBeInTheDocument();
+    expect(screen.getByText(/real-time currency conversion/i)).toBeInTheDocument();
+    expect(screen.getByText(/clean and responsive ui/i)).toBeInTheDocument();
     expect(screen.getByText(/mobile-first design/i)).toBeInTheDocument();
   });
 
@@ -51,7 +51,7 @@ describe('LearnMorePage', () => {
 
   it('has proper responsive layout classes', () => {
     render(<LearnPage />);
-    const container = screen.getByRole('heading', { name: /learn more about this product here!/i }).closest('div');
-    expect(container).toHaveClass('max-w-7xl');
+    const container = screen.getByRole('heading', { name: /learn more about this product!/i }).closest('div');
+    expect(container).toHaveClass('max-w-4xl');
   });
 });

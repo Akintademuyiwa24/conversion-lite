@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import {
   RefreshCcw
 } from 'lucide-react'

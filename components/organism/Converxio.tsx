@@ -24,7 +24,7 @@ function CurrencyConverter() {
  
 
     // State to hold the amount entered by the user
-    const [amount, setAmount] = useState<string>("");
+    const [amount, setAmount] = useState<number>();
 
     // State for the base currency (the one converting from)
     const[fromCurrency, setFromCurrency] = useState("USD");
@@ -40,6 +40,7 @@ function CurrencyConverter() {
 
     const [isOnline, setIsOnline] = useState(true); // Default to true for SSR
     const [isMounted, setIsMounted] = useState(false);
+    
    
     const { isLoading, error, data: rates } = useGetRatesQuery(fromCurrency);
 
@@ -49,12 +50,13 @@ function CurrencyConverter() {
     value: currency
    }))
 
+ 
   
 //    handler to do the conversion when user clicks "Convert"
    const handleConvert = () => {
     if(rates && toCurrency && amount) {
         const rate = rates[toCurrency]
-        const result = parseFloat(amount)  * rate
+        const result = amount  * rate
         setConvertedAmount(result)
         setHasConverted(true)
 
@@ -80,7 +82,7 @@ function CurrencyConverter() {
 
         if(hasConverted && rates && toCurrency && amount && !isNaN(Number(amount))) {
             const rate = rates[toCurrency]
-            const result = parseFloat(amount) * rate
+            const result = amount * rate
             setConvertedAmount(result)
         }
    }, [amount,rates, toCurrency, hasConverted])
@@ -96,14 +98,19 @@ function CurrencyConverter() {
   
    //handler for the amount field
    const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setAmount(e.target.value)
-        // localStorage.setItem('amount', e.target.value); // Store the amount in localStorage
-        if (e.target.value === "" || isNaN(Number(e.target.value))) {
-            setConvertedAmount(null); // Reset converted amount if input is cleared
-            setHasConverted(false); // Reset conversion state
-        }
-        
-   }
+    const inputValue = e.target.value;
+    const numericValue = e.target.valueAsNumber;
+    
+    // Only set valid numbers to state
+    if (inputValue === "" || inputValue === undefined) {
+        setAmount(undefined); // Keep empty state as undefined
+        setConvertedAmount(null);
+        setHasConverted(false);
+    } else if (!isNaN(numericValue)) {
+        setAmount(numericValue); // Only set if it's a valid number
+    }
+    // If invalid input (NaN), don't update amount state at all
+}
 
 
 const handleFromCurrencyChange = (option: FromCurrencyChangeOption | null) => {
@@ -118,9 +125,14 @@ const handleFromCurrencyChange = (option: FromCurrencyChangeOption | null) => {
    }
 
    //disable convert button/component
-   const convertButtonDisabled =
-  !amount || isNaN(Number(amount)) || !fromCurrency || !toCurrency || fromCurrency === toCurrency || !!error;
-
+   const convertButtonDisabled = 
+    !amount || 
+    amount === undefined || 
+    isNaN(amount) || 
+    !fromCurrency || 
+    !toCurrency || 
+    fromCurrency === toCurrency || 
+    !!error;
 
   useEffect(() => {
     // Set the initial online state after component mounts
@@ -145,15 +157,15 @@ const handleFromCurrencyChange = (option: FromCurrencyChangeOption | null) => {
         {error && <p>Failed to load rates</p>}
         {isMounted && !isOnline && <p>You are offline. Some features may not work.</p>}
         
-        <FromCurrencySelector amount = {amount} onChangeAmount = {handleAmount} disabled={!!error} onChange = {handleFromCurrencyChange} fromCurrency= {fromCurrency} options = {currencyOptions}/>
+        <FromCurrencySelector amount={amount || ""} onChangeAmount={handleAmount} disabled={!!error} onChange={handleFromCurrencyChange} fromCurrency={fromCurrency} options={currencyOptions}/>
         <LiveRate onChange = {handleSwap}/>
         <ToCurrencySelector options = {currencyOptions} disabled={!!error} onChange = {handleToCurrencyChange} toCurrency = {toCurrency} />
 
         <div className="flex flex-col items-center justify-center w-full">
             {convertedAmount !== null && (
-            <div className="font-mono p-6 text-sm text-white bg-black rounded-lg focus:ring mx-2 my-2 text-center">
+            <div className="font-mono px-4 py-2 text-sm text-black border border-green-950 bg-green-100 rounded-lg focus:ring mx-2 my-2 text-center">
                 {amount &&
-                `${amount} ${fromCurrency} = ${formatCurrency(convertedAmount)} ${toCurrency}`
+                `${formatCurrency(amount)} ${fromCurrency} = ${formatCurrency(convertedAmount)} ${toCurrency}`
                 }
             </div>
             )}

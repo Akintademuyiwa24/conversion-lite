@@ -12,10 +12,12 @@ describe('Button', () => {
         render(<Button>Sign up</Button>);
         expect(screen.getByText('Sign up')).toBeInTheDocument();
     })
+
     it('renders with the given children correctly', () => {
         render(<Button>Sign in</Button>);
         expect(screen.getByText('Sign in')).toBeInTheDocument();
     })
+
 
     it('applies a size prop', () => {
         render(<Button size='lg'>Get Started</Button>)

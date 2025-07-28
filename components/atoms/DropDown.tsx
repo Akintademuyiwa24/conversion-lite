@@ -33,6 +33,7 @@ export default function SelectDropDown ({label, id,options = [], value, onChange
                 
                 <Select
                     inputId={id}
+                    instanceId={`select-${id}`}
                     value={value}
                     onChange={onChange}
                     options={options}
@@ -49,6 +50,7 @@ export default function SelectDropDown ({label, id,options = [], value, onChange
                     singleValue: (base) => ({
                         ...base,
                         color: "#fff",
+                        backgroundColor: "#4B5563", // Tailwind bg-gray-700
                     }),
                     }}
                 />

@@ -9,7 +9,7 @@ export default async function HomeLayout({children}: ChildrenProps) {
   return (
     <div className="flex min-h-screen flex-col">
 
-      <header className="border-b border-gray-200 dark:border-dark-border-subtle bg-white dark:bg-dark-base">
+      <header className="border-b border-gray-200 dark:border-dark-border-subtle bg-white dark:bg-gray-900">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-8">
             <Link href="/" className="text-xl font-bold">

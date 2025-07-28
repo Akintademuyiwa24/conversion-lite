@@ -9,7 +9,7 @@ type OptionType = {
 interface FromCurrencySelectorProps {
     options: { label: string, value: string }[];  // Array of objects with label and value (for dropdown options)
     fromCurrency: string;  // The currently selected currency
-    amount: string
+    amount: number | string;  // The amount entered by the user, can be number or string
     onChange: (option: OptionType | null) => void;  // The onChange handler for the dropdown
     onChangeAmount: (e: React.ChangeEvent<HTMLInputElement>) => void;// The onChange handler for the dropdown
     disabled?: boolean; // Optional prop to disable the dropdown
@@ -31,16 +31,19 @@ interface FromCurrencySelectorProps {
                     value={selectedFromOption}
                     disabled={disabled}
                     menuPlacement="top" // opens upward
+
                 />
 
             
         }
+        
+        
             <InputField
-                value={amount}
+                value={typeof amount === 'string' ? amount : (amount || "")}
                 label="Enter Amount"
                 id="Amount"
                 onChange={onChangeAmount}
-                disabled = {disabled}
+                disabled={disabled}
             />
             </div>
         </div>

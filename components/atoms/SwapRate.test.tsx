@@ -7,10 +7,10 @@ describe('SwapRate component', () => {
     render(<SwapRate onChange={onChange} />)
 
     const button = screen.getByRole('button', { name: /swap/i })
+    expect(button).toBeInTheDocument()
+    expect(button).not.toHaveClass('rounded-md bg-slate-200')
     
     fireEvent.click(button)
     expect(onChange).toHaveBeenCalled()
-    expect(button).toBeInTheDocument()
-    expect(button).not.toHaveClass('rounded-md bg-slate-200')
   });
 });

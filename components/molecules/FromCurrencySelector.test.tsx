@@ -15,7 +15,7 @@ describe('FromCurrencySelector', () => {
     render(
       <FromCurrencySelector
         fromCurrency='usd'
-        amount='100'
+        amount= {100}
         options={options}
         disabled={false}
         onChange={onChange}
@@ -36,7 +36,7 @@ describe('FromCurrencySelector', () => {
     render(
       <FromCurrencySelector
         fromCurrency='usd'
-        amount='100'
+        amount={100}
         options={options}
         disabled={false}
         onChange={onChange}

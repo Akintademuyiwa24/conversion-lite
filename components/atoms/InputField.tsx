@@ -1,6 +1,6 @@
 type InputFieldProps = {
     label: string
-    value: string
+    value: number | string
     id: string
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
     placeholder?: string
@@ -19,7 +19,7 @@ export default function InputField({label, id, value, onChange, placeholder, dis
                 placeholder={placeholder}
                 onChange={onChange}
                 id={id} 
-                className="w-[180px] text-sm rounded-md px-2 py-3 mt-1 outline-0 border border-gray-400"
+                className="w-[180px] text-sm rounded-md px-2 py-3 mt-1 dark:text-black outline-0 border border-gray-400"
                 disabled={disabled}
             />
         </div>

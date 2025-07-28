@@ -7,7 +7,6 @@ import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 
 type HistoryProp = {
-    data: string;
     amount: number;
     fromCurrency: string;
     toCurrency: string;
@@ -152,16 +151,16 @@ export default function TransactionHistory() {
                                         mode === "dark" ? "bg-gray-700" : "bg-gray-100"
                                     }`}
                                 >
-                                    <td className="p-4 text-sm">
-                                        {new Date(conv.data).toLocaleString()}
+                                    <td className="p-4 text-sm text-gray-500">
+                                        {new Date().toLocaleString()}
                                     </td>
-                                    <td className="p-4 font-medium">
+                                    <td className="p-4 font-medium text-gray-500">
                                         {conv.amount}
                                     </td>
-                                    <td className="p-4 uppercase tracking-wide">
+                                    <td className="p-4 uppercase tracking-wide text-gray-500">
                                         {conv.fromCurrency}
                                     </td>
-                                    <td className="p-4 uppercase tracking-wide">
+                                    <td className="p-4 uppercase tracking-wide text-gray-500">
                                         {conv.toCurrency}
                                     </td>
                                     <td className="p-4 font-semibold text-green-500">

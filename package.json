@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.27.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@types/next": "^8.0.7",
     "clsx": "^2.1.1",

@@ -1,3 +1,5 @@
+'use client';
+
 import LearnMorePage from "@/components/molecules/LearnMorePage"
 
 import Marquee from "react-fast-marquee";
@@ -13,7 +15,7 @@ export default function LearnMore() {
 }
 
 
-const AnnouncementTicker = () => {
+export const AnnouncementTicker = () => {
   return (
     <div className="bg-gray-600 py-2">
       <Marquee

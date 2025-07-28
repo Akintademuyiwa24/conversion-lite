@@ -5,6 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
+ 
 }
 
 export default function Button({
@@ -14,6 +15,7 @@ export default function Button({
   size = 'md',
   isLoading = false,
   disabled,
+ 
   ...props
 }: ButtonProps) {
   const baseStyles =
@@ -44,7 +46,8 @@ export default function Button({
         variants[variant],
         sizes[size],
         isLoading && 'opacity-70 cursor-not-allowed',
-        className
+        className,
+      
       )}
       disabled={disabled || isLoading}
       {...props}
