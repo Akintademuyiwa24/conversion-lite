@@ -12,6 +12,7 @@ export default function NavLink({ href, icon, label, isActive }: NavLinkProps) {
   return (
     <Link
       href={href}
+      aria-label={label}
       className={cn(
         'flex items-center px-2 py-2 text-sm font-medium rounded-md group',
         isActive

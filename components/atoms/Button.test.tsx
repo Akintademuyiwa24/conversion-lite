@@ -18,6 +18,10 @@ describe('Button', () => {
         expect(screen.getByText('Sign in')).toBeInTheDocument();
     })
 
+    it('handles disabled state correctly', () => {
+    render(<Button disabled>Click me</Button>);
+    expect(screen.getByRole('button')).toBeDisabled();
+    });
 
     it('applies a size prop', () => {
         render(<Button size='lg'>Get Started</Button>)

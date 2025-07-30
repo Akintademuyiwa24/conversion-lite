@@ -5,10 +5,8 @@ import themeSlice from './slices/themeSlice'
 
 const store = configureStore({
     reducer:{
-  
         [currencyAPI.reducerPath]:currencyAPI.reducer, 
         theme: themeSlice, 
-       
     },
     middleware: (getDefaultMiddleware) => 
         getDefaultMiddleware().concat(currencyAPI.middleware), 

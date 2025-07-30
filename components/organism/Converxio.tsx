@@ -152,7 +152,7 @@ const handleFromCurrencyChange = (option: FromCurrencyChangeOption | null) => {
   }, []);
  
   return (
-    <div className="pt-6 flex flex-col justify-center min-h-[calc(100vh-900px)] border rounded-lg border-green-800">
+    <div className="pt-6 flex flex-col justify-center mt-28 border rounded-lg border-green-800">
         {isLoading && <p>Fetching currency rates...</p>}
         {error && <p>Failed to load rates</p>}
         {isMounted && !isOnline && <p>You are offline. Some features may not work.</p>}

@@ -20,7 +20,7 @@ interface ToCurrencySelectorProps {
 
     return (
         <div>
-            <div className="flex justify-center items-center bg-slate-100 rounded-xl mx-4 sm:mx-8 md:mx-16 lg:mx-20 p-4 sm:p-6 md:p-8">
+            <div data-testid="to-currency-selector" className="flex justify-center items-center bg-slate-100 rounded-xl mx-4 sm:mx-8 md:mx-16 lg:mx-20 p-4 sm:p-6 md:p-8">
                 <SelectDropDown
                     label="To"
                     id="to"

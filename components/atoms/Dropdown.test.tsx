@@ -75,4 +75,46 @@ describe('SelectDropDown component', () => {
     const select = screen.getByLabelText('Disabled');
     expect(select).toBeDisabled();
   });
+
+  it('renders with undefined disabled prop', () => {
+    const onChange = jest.fn();
+    const options = [
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' }
+    ];
+
+    render(
+      <SelectDropDown
+        options={options}
+        onChange={onChange}
+        label="Select an option"
+        id="3"
+        menuPlacement="bottom"
+        value={null}
+      />
+    );
+
+    const selectElement = screen.getByRole('combobox');
+    expect(selectElement).toBeInTheDocument();
+    expect(selectElement).not.toBeDisabled();
+  });
+
+  it('renders with default empty options array', () => {
+    const onChange = jest.fn();
+
+    render(
+      <SelectDropDown
+        // @ts-expect-error Testing default parameter behavior
+        options={undefined}
+        onChange={onChange}
+        label="Empty options"
+        id="4"
+        value={null}
+      />
+    );
+
+    const selectElement = screen.getByRole('combobox');
+    expect(selectElement).toBeInTheDocument();
+  });
+  
 });

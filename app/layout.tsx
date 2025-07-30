@@ -3,6 +3,7 @@ import "./globals.css";
 import { ReduxProvider } from "@/store/ReduxProvider";
 import { ClerkProvider } from "@clerk/nextjs";
 
+
 import { Inter } from 'next/font/google'
 
 const inter = Inter({
@@ -21,6 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body

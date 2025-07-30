@@ -9,11 +9,11 @@ const getInitialTheme = (): "light" | "dark" => {
         const stored = localStorage.getItem("theme");
         return stored === "dark" ? "dark" : "light";
     }
-    return "light"; // Default for SSR
+    return "light"; 
 };
 
 const initialState: ThemeState = {
-    mode: getInitialTheme(), // Default theme
+    mode: getInitialTheme(), 
 };
 
 const themeSlice = createSlice({
@@ -23,13 +23,13 @@ const themeSlice = createSlice({
         setTheme(state, action: PayloadAction<"light" | "dark">) {
             state.mode = action.payload
             if (typeof window !== "undefined") {
-                localStorage.setItem("theme", action.payload); // Save to localStorage
+                localStorage.setItem("theme", action.payload);
             }
         },
         toggleTheme(state) {
             state.mode = state.mode === "light" ? "dark" : "light";
             if (typeof window !== "undefined") {
-                localStorage.setItem("theme", state.mode); // Save to localStorage
+                localStorage.setItem("theme", state.mode); 
             }
         }
     }

@@ -1,13 +1,23 @@
 import Link from 'next/link'
 import Button from '@/components/atoms/Button'
 
+// import { ToggleTheme } from '@/components/atoms/ToggleTheme'
+
 type ChildrenProps= {
   children: React.ReactNode
 }
 
 export default async function HomeLayout({children}: ChildrenProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+   <HomeLayoutClient>
+      {children}
+   </HomeLayoutClient>
+  )
+}
+
+export function HomeLayoutClient({children}: ChildrenProps){
+  return (
+       <div className="flex min-h-screen flex-col">
 
       <header className="border-b border-gray-200 dark:border-dark-border-subtle bg-white dark:bg-gray-900">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -41,6 +51,9 @@ export default async function HomeLayout({children}: ChildrenProps) {
                 <Button>Sign up</Button>
               </Link>
             </div>
+            {/* <div>
+              <ToggleTheme/>
+            </div> */}
           </div>
         </div>
       </header>

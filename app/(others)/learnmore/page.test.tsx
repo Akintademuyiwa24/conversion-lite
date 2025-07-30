@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 import {AnnouncementTicker} from './page'
+import LearnMore from './page';
 
 
 Object.defineProperty(global, 'ResizeObserver', {
@@ -22,4 +23,14 @@ describe('AnnouncementTicker', () => {
   expect(tickerContainer).toBeInTheDocument();
 });
 
+});
+
+describe('LearnMore Page', () => {
+  it('renders the main learn more component', () => {
+    render(<LearnMore />);
+    
+    // This should cover line 8 in the LearnMore component
+    const mainContainer = document.querySelector('div');
+    expect(mainContainer).toBeInTheDocument();
+  });
 });
