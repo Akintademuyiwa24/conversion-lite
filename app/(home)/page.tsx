@@ -25,7 +25,7 @@ export default function LandingPage() {
                   </p>
                   <div className="mt-10">
                     <Link href="/convert">
-                      <Button size="lg" variant='primary'>Get Started</Button>
+                      <Button size="lg" variant='primary'>Get Started and convert now</Button>
                     </Link>
                   </div>
                 </div>
