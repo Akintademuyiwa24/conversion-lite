@@ -24,7 +24,7 @@ export const AnnouncementTicker = () => {
         pauseOnHover={false}
         className="text-sm p-4 hover:cursor-pointer font-medium text-gray-800 bg-amber-500"
       >
-        <span className="mx-4">Click here for 40+ new updates</span>
+        <span className="mx-4">Click here for 40+ new updatess</span>
         <span className="mx-4">Best partners by your side</span>
         <span className="mx-4">Sell everywhere from one dashboard</span>
         <span className="mx-4">Free plan available – no credit card needed</span>
