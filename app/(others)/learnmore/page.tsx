@@ -27,7 +27,7 @@ export const AnnouncementTicker = () => {
         <span className="mx-4">Click here for 40+ new updatess</span>
         <span className="mx-4">Best partners by your side</span>
         <span className="mx-4">Sell everywhere from just one dashboard</span>
-        <span className="mx-4">Free plan available – no credit card needed</span>
+        <span className="mx-4">Free plan available – no credit card needed anytime</span>
       </Marquee>
     </div>
   );
