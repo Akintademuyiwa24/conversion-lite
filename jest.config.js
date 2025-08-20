@@ -21,6 +21,15 @@ const customJestConfig = {
     '<rootDir>/**/__tests__/**/*.{js,jsx,ts,tsx}',
     '<rootDir>/**/*.(test|spec).{js,jsx,ts,tsx}',
   ],
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 70,
+      functions: 65,
+      lines: 70,
+      statements: 70
+    }
+  },
 }
 
 module.exports = createJestConfig(customJestConfig)
