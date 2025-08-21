@@ -15,7 +15,7 @@ export default async function DashboardLayout({
 }
 
 
-export const DashboardClient = ({ children }: { children: React.ReactNode }) => {
+const DashboardClient = ({ children }: { children: React.ReactNode }) => {
   return (
      <div data-testid="dashboard-layout" className="min-h-screen">
       <Navigation />
