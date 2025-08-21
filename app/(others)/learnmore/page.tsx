@@ -15,7 +15,7 @@ export default function LearnMore() {
 }
 
 
-export const AnnouncementTicker = () => {
+const AnnouncementTicker = () => {
   return (
     <div className="bg-gray-600 py-2">
       <Marquee
