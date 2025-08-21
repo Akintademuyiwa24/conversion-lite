@@ -15,7 +15,7 @@ export default async function HomeLayout({children}: ChildrenProps) {
   )
 }
 
-export function HomeLayoutClient({children}: ChildrenProps){
+function HomeLayoutClient({children}: ChildrenProps){
   return (
        <div className="flex min-h-screen flex-col">
 
